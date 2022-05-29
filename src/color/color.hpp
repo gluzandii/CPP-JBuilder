@@ -37,7 +37,7 @@ static void color_print(std::string msg, COLOR clr) {
         break;
     }
 
-    std::cout << msg << RESET;
+    std::cout << msg << c.RESET;
 }
 
 static void color_println(std::string msg, COLOR clr) {
