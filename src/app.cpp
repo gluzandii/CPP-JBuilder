@@ -6,7 +6,7 @@
 #include "cmd/cmd_util.hpp"
 
 #include "tasks/init_task.hpp"
-#include "tasks/build.task.hpp"
+#include "tasks/clean_task.hpp"
 
 #include "util/vector_util.hpp"
 
@@ -28,13 +28,8 @@ int main(int argc, char** argv) {
         build_task(cwd);
     }
 
-    else if (cmd == "package") {
-
-    }
-
-
     else if (cmd == "clean") {
-
+        clean_task(cwd);
     } 
 
     else {
