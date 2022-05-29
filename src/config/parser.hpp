@@ -29,7 +29,7 @@ static std::unordered_map<std::string, std::string> parse(std::string file) {
         auto j = i.find(":");
 
         auto one = i.substr(0, j), two = i.substr(j + 1);
-        mp.insert({one, two});
+        mp.insert({boost::trim_copy(one), boost::trim_copy(two)});
     }
 
     return mp;

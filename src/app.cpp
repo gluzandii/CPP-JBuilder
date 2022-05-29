@@ -5,8 +5,6 @@
 
 #include "cmd/cmd_util.hpp"
 
-#include "color/color.hpp"
-
 #include "tasks/init_task.hpp"
 #include "tasks/build.task.hpp"
 

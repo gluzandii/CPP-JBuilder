@@ -29,7 +29,12 @@ static std::ofstream touch(std::string file) {
 }
 
 static void init_task(std::string dir) {
-    auto file = dir + "/" + "jbuild.config.txt";
+    auto file = dir + "/jbuild.config.txt";
+    if (std::filesystem::exists(file)) {
+        std::cerr << "Current directory already has a jbuild project." << std::endl;
+        return;
+    }
+
     auto fout = touch(file);
 
     fout << "name: " << current_user() << std::endl << "description: NONE" << std::endl;

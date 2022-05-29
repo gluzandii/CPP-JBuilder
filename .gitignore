@@ -1,4 +1,6 @@
 /bin/
+/out/
+/test/
 /src/boost/
 
 *.exe
@@ -6,3 +8,8 @@
 
 *.dll
 *.so
+
+*.class
+*.out
+
+*.config.txt
