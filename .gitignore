@@ -1,4 +1,5 @@
 /bin/
+/src/boost/
 
 *.exe
 *.out
