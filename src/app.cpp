@@ -8,6 +8,7 @@
 #include "color/color.hpp"
 
 #include "tasks/init_task.hpp"
+#include "tasks/build.task.hpp"
 
 #include "util/vector_util.hpp"
 
@@ -26,7 +27,7 @@ int main(int argc, char** argv) {
     }
 
     else if (cmd == "build") {
-
+        build_task(cwd);
     }
 
     else if (cmd == "package") {
