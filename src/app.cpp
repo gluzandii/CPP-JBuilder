@@ -1,10 +1,13 @@
 #include <iostream>
 #include <algorithm>
 
-#include "boost/filesystem.hpp"
+#include <filesystem>
 
 #include "cmd/cmd_util.hpp"
+
 #include "color/color.hpp"
+
+#include "tasks/init_task.hpp"
 
 #include "util/vector_util.hpp"
 
@@ -15,11 +18,11 @@ int main(int argc, char** argv) {
     }
 
     auto args = get_range(argc, argv, 1, argc);
-    auto cmd = get_command(args[0]);
-    auto cwd = boost::filesystem::current_path().string();
+    auto cmd = args[0];
+    auto cwd = std::filesystem::current_path().string();
 
     if (cmd == "init") {
-
+        init_task(cwd);
     }
 
     else if (cmd == "build") {
@@ -29,6 +32,7 @@ int main(int argc, char** argv) {
     else if (cmd == "package") {
 
     }
+
 
     else if (cmd == "clean") {
 

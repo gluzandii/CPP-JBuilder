@@ -9,5 +9,3 @@ clean:
 run:
 	./bin/app $(ARGS)
 
-final:
-	clang++ src/app.cpp -o bin/app -Isrc
