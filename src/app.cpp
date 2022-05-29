@@ -1,8 +1,11 @@
 #include <iostream>
 #include <algorithm>
 
+#include "boost/filesystem.hpp"
+
 #include "cmd/cmd_util.hpp"
 #include "color/color.hpp"
+
 #include "util/vector_util.hpp"
 
 int main(int argc, char** argv) {
@@ -13,6 +16,7 @@ int main(int argc, char** argv) {
 
     auto args = get_range(argc, argv, 1, argc);
     auto cmd = get_command(args[0]);
+    auto cwd = boost::filesystem::current_path().string();
 
     if (cmd == "init") {
 
