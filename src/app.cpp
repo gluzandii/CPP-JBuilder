@@ -36,6 +36,10 @@ int main(int argc, char** argv) {
         std::cout << "\tclean\tDeletes the 'out' folder of the current sjb project." << std::endl;
     }
 
+    else if (cmd == "version") {
+        std::cout << "Version: 1.0.0" << std::endl;
+    }
+
     else if (cmd == "clean") {
         clean_task(cwd);
     } 

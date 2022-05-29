@@ -1,4 +1,5 @@
-enum COLOR {
+enum COLOR
+{
     RED,
     BLUE,
     GREEN,

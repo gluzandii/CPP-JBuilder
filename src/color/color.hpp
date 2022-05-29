@@ -3,7 +3,8 @@
 
 #include "color_enum.hpp"
 
-struct COLOR_PRINT {
+struct COLOR_PRINT
+{
     std::string RESET = "\033[0m";
     std::string RED = "\033[0;31m";    // RED
     std::string GREEN = "\033[0;32m";  // GREEN
@@ -15,8 +16,10 @@ struct COLOR_PRINT {
 
 struct COLOR_PRINT c;
 
-static void color_print(std::string msg, COLOR clr) {
-    switch (clr) {
+static void color_print(std::string msg, COLOR clr)
+{
+    switch (clr)
+    {
     case RED:
         std::cout << c.RED;
         break;
@@ -40,7 +43,8 @@ static void color_print(std::string msg, COLOR clr) {
     std::cout << msg << c.RESET;
 }
 
-static void color_println(std::string msg, COLOR clr) {
+static void color_println(std::string msg, COLOR clr)
+{
     color_print(msg, clr);
     std::cout << std::endl;
 }

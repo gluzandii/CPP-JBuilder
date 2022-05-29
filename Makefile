@@ -1,11 +1,11 @@
 all: clean build
 
 build:
-	g++ src/app.cpp -o bin/app -Isrc
+	g++ src/app.cpp -o bin/sjb -Isrc
 
 clean:
-	rm bin/app
+	rm bin/sjb
 
 run:
-	./bin/app $(ARGS)
+	./bin/sjb $(ARGS)
 
