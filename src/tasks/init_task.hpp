@@ -1,11 +1,35 @@
 #include <string>
 #include <fstream>
+#include <filesystem>
 
-#include <util/path_util.hpp>
-#include <util/os_util.hpp>
+#ifdef _WIN32
+#include <windows.h>
+#include <Lmcons.h>
+#else
+#include <unistd.h>
+#endif
+
+static std::string current_user() {
+#ifdef _WIN32
+    char username[UNLEN+1];
+    DWORD username_len = UNLEN+1;
+    GetUserName(username, &username_len);
+
+    return std::string(username);
+#else
+    return getlogin();
+#endif
+} 
+
+static std::ofstream touch(std::string file) {
+    auto p = std::filesystem::path(file).parent_path();
+
+    std::filesystem::create_directories(p);
+    return std::ofstream(file, std::ios::out);
+}
 
 static void init_task(std::string dir) {
-    auto file = dir + separator + "jbuild.config.txt";
+    auto file = dir + "/" + "jbuild.config.txt";
     auto fout = touch(file);
 
     fout << "name: " << current_user() << std::endl << "description: NONE" << std::endl;
