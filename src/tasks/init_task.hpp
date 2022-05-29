@@ -1,6 +1,7 @@
 #include <string>
 #include <fstream>
 #include <filesystem>
+#include <iostream>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -29,7 +30,7 @@ static std::ofstream touch(std::string file) {
 }
 
 static void init_task(std::string dir) {
-    auto file = dir + "/jbuild.config.txt";
+    auto file = dir + "/sjb.config.txt";
     if (std::filesystem::exists(file)) {
         std::cerr << "Current directory already has a jbuild project." << std::endl;
         return;
@@ -38,7 +39,7 @@ static void init_task(std::string dir) {
     auto fout = touch(file);
 
     fout << "name: " << current_user() << std::endl << "description: NONE" << std::endl;
-    fout << "src: " << std::endl << "out: " << std::endl << "package: " << std::endl << std::endl;
+    fout << "src: " << std::endl << "out: " << std::endl << std::endl;
 
     fout.flush();
     fout.close();

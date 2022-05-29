@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
     }
 
     auto args = get_range(argc, argv, 1, argc);
-    auto cmd = args[0];
+    auto cmd = boost::replace_all_copy(args[0], "-", "");
     auto cwd = std::filesystem::current_path().string();
 
     if (cmd == "init") {
@@ -26,6 +26,14 @@ int main(int argc, char** argv) {
 
     else if (cmd == "build") {
         build_task(cwd);
+    }
+
+    else if (cmd == "help" || cmd == "h") {
+        std::cout << "sjb - The simple java build tool. Version: 1.0.0" << std::endl << std::endl;
+
+        std::cout << "\tinit\tCreates a new sjb project." << std::endl;
+        std::cout << "\tbuild\tBuilds the current sjb project." << std::endl;
+        std::cout << "\tclean\tDeletes the 'out' folder of the current sjb project." << std::endl;
     }
 
     else if (cmd == "clean") {

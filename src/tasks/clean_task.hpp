@@ -4,7 +4,7 @@
 
 static void clean_task(std::string cwd)
 {
-    auto file = cwd + "/jbuild.config.txt";
+    auto file = cwd + "/sjb.config.txt";
     if (!std::filesystem::exists(file))
     {
         color_println("No jbuild project found in the current directory.", RED);
